@@ -14,3 +14,26 @@
     outline: none;
 
 }
+
+.button:active {
+    background-color: #ccc;
+}
+
+/* quando o botão ocupa 2 posições */
+.button.double {
+    grid-column: span 2;
+}
+/* quando o botão ocupa 2 posições */
+.button.triple{
+    grid-column: span 3;
+}
+
+.button.operation {
+    background-color: #fa8231;
+    color: #fff;
+}
+
+.button.operation:active {
+    background-color: #974610a2;
+}
+
