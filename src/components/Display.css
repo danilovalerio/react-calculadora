@@ -1,0 +1,14 @@
+.display {
+    /* vai ocupar 4 colunas, tipo mesclar */
+    grid-column: span 4;
+    background-color: #0004;
+
+    /* flex-box dentro do display */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    font-size: 2.1em;
+    /* se for um valor muito grande não passa do display */
+    overflow: hidden;
+}
