@@ -31,8 +31,35 @@ export default class Calculadora extends Component {
         // console.log('limpar')
     }
 
-    setOperation(op){
-        console.log(op)
+    setOperation(operation){
+        //se o valor do array atual for 0
+        if(this.state.current === 0) {
+            this.setState({ operation, current: 1, clearDisplay: true })
+        } else {
+            //flag para ver se é o igual que foi clicado
+            const equals = operation === '='
+            //se já tem operação
+            const currentOperation = this.state.operation
+
+            const values = [...this.state.values]//faz um clone dos valores do state para values
+            try {
+                values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+            } catch(e) {
+                values[0] = this.state.values[0]
+            }
+
+            
+            values[1] = 0
+
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1, //se clicou em equals mexe no valor 0 zero
+                clearDisplay: !equals,
+                values
+
+            })
+        }
     }
 
     addDigit(n){
